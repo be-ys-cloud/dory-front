@@ -7,11 +7,11 @@ and the requirements in the [server configuration](https://github.com/be-ys/dory
 
 ## Method 1 : From our DockerHub image :
 
-`docker run -d -p 80:8000 -e VUE_APP_BACKEND=https://your_backend_address/ beys/dory-front:latest`
+`docker run -d -p 80:8000 -e VUE_APP_BACKEND=https://your_backend_address/ beyscloud/dory-front:latest`
 
 ## Method 2 : From sources
 
-1. Git clone : `git clone https://github.com/be-ys/dory-front.git` and go to the `dory-front` folder
+1. Git clone : `git clone https://github.com/be-ys-cloud/dory-front.git` and go to the `dory-front` folder
 2. `export VUE_APP_BACKEND=https://your_backend_address/`
 3. `npm install && npm run serve`
 
