@@ -1,8 +1,10 @@
 <script>
 import toaster from "@/components/mixins/toaster";
+import PasswordPolicy from "@/components/operations/password_policy.vue";
 
 export default {
   mixins: [toaster],
+  components: {PasswordPolicy},
   data() {
 
     return {
@@ -103,7 +105,7 @@ export default {
       />
     </b-form-group>
 
-    <b-alert variant="info" show v-html="$t('modal.respect_password_info')"></b-alert>
+    <PasswordPolicy />
 
     <div class="text-right">
       <b-button class="mt-3" @click="$bvModal.hide('bv-modal-example')">{{$t("modal.cancel")}}</b-button>

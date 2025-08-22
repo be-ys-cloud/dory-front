@@ -1,8 +1,10 @@
 <script>
 import toaster from "@/components/mixins/toaster";
+import PasswordPolicy from "@/components/operations/password_policy.vue";
 
 export default {
   mixins: [toaster],
+  components: {PasswordPolicy},
   name: "unlock",
 
   data() {
@@ -57,8 +59,7 @@ export default {
   <div class="content">
     <h1>{{ $t('reinitialize.title') }}</h1>
 
-    <b-alert variant="info" show v-html="$t('modal.respect_password_info')"></b-alert>
-
+    <PasswordPolicy class="mx-auto text-start w-50" />
 
     <b-form v-on:submit.prevent="changePassword" v-if="!loading">
       <b-form-group
@@ -149,5 +150,4 @@ h1 {
   padding-top: 60px;
   padding-bottom: 40px
 }
-
 </style>

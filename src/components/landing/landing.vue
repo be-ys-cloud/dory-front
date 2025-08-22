@@ -42,7 +42,7 @@ export default {
   created() {
     this.axios.get(process.env.VUE_APP_BACKEND + "/config")
         .then(response => {
-          this.features = response.data
+          this.features = response.data.features
         })
         .catch(() => {
           this.$awn.alert(this.$t("landing.load_config.request_error"), this.toasterLabels)
