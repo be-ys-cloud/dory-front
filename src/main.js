@@ -3,6 +3,7 @@ import VueI18n from 'vue-i18n'
 import App from './App.vue'
 import BootstrapVue from 'bootstrap-vue'
 import router from './router.js'
+import store from './store.js'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -57,5 +58,15 @@ Vue.use(VueAxios, axios);
 new Vue({
     i18n,
     router,
+    store,
     render: h => h(App),
+    created() {
+        this.axios.get(process.env.VUE_APP_BACKEND + "/config")
+            .then(response => {
+                this.$store.commit('updateConfig', response.data)
+            })
+            .catch(() => {
+                this.$awn.alert(this.$t("landing.load_config.request_error"), this.toasterLabels)
+            })
+    }
 }).$mount('#app');

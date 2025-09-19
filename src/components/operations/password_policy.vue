@@ -1,25 +1,9 @@
 <script>
-import toaster from "@/components/mixins/toaster";
-
 export default {
-  mixins: [toaster],
-
-  data() {
-    return {
-      password_policies: {},
+  computed: {
+    password_policies() {
+      return this.$store.state.config.password_policies
     }
-  },
-
-  created() {
-    this.axios.get(process.env.VUE_APP_BACKEND + "/config")
-        .then(response => {
-          if (response.data.password_policies) {
-            this.password_policies = response.data.password_policies
-          }
-        })
-        .catch(() => {
-          this.$awn.alert(this.$t("landing.load_config.request_error"), this.toasterLabels)
-        })
   },
 }
 </script>
