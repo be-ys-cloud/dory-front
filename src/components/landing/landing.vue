@@ -9,14 +9,9 @@ import revoke_totp from "@/components/landing/revoke_totp";
 export default {
   mixins: [toaster],
   components: {revoke_totp, check_totp, create_totp, AskModal, ChangePasswordModal},
-  data() {
-    return {
-      features: {
-        "disable_unlock": true,
-        "disable_password_update": false,
-        "disable_password_reinitialization": false,
-        "disable_totp": false
-      }
+  computed: {
+      features() {
+        return this.$store.state.config.features
     }
   },
   methods: {
@@ -39,16 +34,6 @@ export default {
       this.$refs.revoke_totp.display()
     }
   },
-  created() {
-    this.axios.get(process.env.VUE_APP_BACKEND + "/config")
-        .then(response => {
-          this.features = response.data
-        })
-        .catch(() => {
-          this.$awn.alert(this.$t("landing.load_config.request_error"), this.toasterLabels)
-        })
-  }
-
 }
 </script>
 

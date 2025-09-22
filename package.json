@@ -22,7 +22,8 @@
     "vue-i18n": "^8.26.7",
     "vue-konami-code": "^1.0.0",
     "vue-router": "^3.5.3",
-    "vue-switch-lang": "^0.4.0"
+    "vue-switch-lang": "^0.4.0",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.15",
